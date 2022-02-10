@@ -49,6 +49,17 @@ def adjust_height(source, template, scale):
         setattr(source, attr, getattr(template, attr))
     source.transform(psMat.scale(scale))
 
+def adjust_line_height(source):
+    if (source.os2_winascent + source.os2_windescent) % 2 != 0:
+        source.os2_winascent += 1
+    # Make the line size identical for windows and mac
+    source.hhea_ascent = source.os2_winascent
+    source.hhea_descent = -source.os2_windescent
+    # Line gap add extra space on the bottom of the line which
+    # doesn't allow the powerline glyphs to fill the entire line.
+    source.hhea_linegap = 0
+    source.os2_typolinegap = 0
+
 font = fontforge.open('vendor/comic-shanns.otf')
 ref = fontforge.open('vendor/Cousine-Regular.ttf')
 for g in font.glyphs():
