@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -16,9 +16,9 @@ Based on:
 import os
 import re
 import sys
+from importlib import reload
 
 reload(sys)
-sys.setdefaultencoding('UTF8')
 
 import fontforge
 import psMat
@@ -46,7 +46,7 @@ font = fontforge.open('vendor/comic-shanns.otf')
 ref = fontforge.open('vendor/Cousine-Regular.ttf')
 for g in font.glyphs():
     uni = g.unicode
-    category = unicodedata.category(unichr(uni)) if 0 <= uni <= sys.maxunicode else None
+    category = unicodedata.category(chr(uni)) if 0 <= uni <= sys.maxunicode else None
     if g.width > 0 and category not in ['Mn', 'Mc', 'Me']:
         target_width = 510
         if g.width != target_width:
