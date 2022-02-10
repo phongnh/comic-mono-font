@@ -62,6 +62,16 @@ def adjust_line_height(source):
 
 font = fontforge.open('vendor/comic-shanns.otf')
 ref = fontforge.open('vendor/Cousine-Regular.ttf')
+# ref = fontforge.open('vendor/CascadiaCode.ttf')
+# ref = fontforge.open('vendor/ComicShanns.ttf')
+# ref = fontforge.open('vendor/Consolas-Regular.ttf')
+# ref = fontforge.open('vendor/IBMPlexMono-Regular.ttf')
+# ref = fontforge.open('vendor/Inconsolata-Regular.ttf')
+# ref = fontforge.open('vendor/JetBrainsMono-Regular.ttf')
+# ref = fontforge.open('vendor/Mplus1Code-Regular.ttf')
+# ref = fontforge.open('vendor/iosevka-regular.ttf')
+# ref = fontforge.open('vendor/mplus-1m-regular.ttf')
+
 for g in font.glyphs():
     uni = g.unicode
     category = unicodedata.category(chr(uni)) if 0 <= uni <= sys.maxunicode else None
