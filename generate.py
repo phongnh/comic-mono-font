@@ -29,6 +29,13 @@ def height(font):
 
 def adjust_height(source, template, scale):
     source.selection.all()
+    height_scale = height(template) / height(source)
+    print()
+    print(f'height(template) = {height(template)}')
+    print(f'height(source) = {height(source)}')
+    print(f'height_scale = {height_scale}')
+    print(f'scale = {scale}')
+    print()
     source.transform(psMat.scale(height(template) / height(source)))
     for attr in ['ascent', 'descent',
                 'hhea_ascent', 'hhea_ascent_add',
