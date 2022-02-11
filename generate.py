@@ -47,6 +47,7 @@ def adjust_height(source, template, scale):
                 'os2_typodescent', 'os2_typodescent_add',
                 ]:
         setattr(source, attr, getattr(template, attr))
+    # adjust_line_height(source)
     source.transform(psMat.scale(scale))
 
 def adjust_line_height(source):
@@ -61,16 +62,20 @@ def adjust_line_height(source):
     source.os2_typolinegap = 0
 
 font = fontforge.open('vendor/comic-shanns.otf')
-ref = fontforge.open('vendor/Cousine-Regular.ttf')
+# ref = fontforge.open('vendor/Cousine-Regular.ttf')
 # ref = fontforge.open('vendor/Inconsolata-Regular.ttf')
 # ref = fontforge.open('vendor/iosevka-regular.ttf')
-# ref = fontforge.open('vendor/mplus-1m-regular.ttf')
+ref = fontforge.open('vendor/mplus-1m-regular.ttf')
 
 for g in font.glyphs():
     uni = g.unicode
     category = unicodedata.category(chr(uni)) if 0 <= uni <= sys.maxunicode else None
     if g.width > 0 and category not in ['Mn', 'Mc', 'Me']:
         target_width = 510
+        # target_width = 510    # MPlus x 0.975
+        # target_width = 515    # MPlus x 0.9375
+        target_width = 520      # MPlus x 0.9375
+        # target_width = 520    # MPlus x 0.95
         if g.width != target_width:
             delta = target_width - g.width
             g.left_side_bearing += delta / 2
@@ -82,7 +87,11 @@ font.version = '0.1.1'
 font.comment = 'https://github.com/dtinth/comic-mono-font'
 font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
 
-adjust_height(font, ref, 0.875)
+# adjust_height(font, ref, 0.825)
+# adjust_height(font, ref, 0.925)   # MPlus x 520
+adjust_height(font, ref, 0.9375)    # MPlus x 520
+# adjust_height(font, ref, 0.95)    # MPlus x 520
+# adjust_height(font, ref, 0.975)   # MPlus x 510
 font.sfnt_names = [] # Get rid of 'Prefered Name' etc.
 font.fontname = 'ComicMono'
 font.fullname = 'Comic Mono'
