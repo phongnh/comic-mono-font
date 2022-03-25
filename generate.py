@@ -67,6 +67,7 @@ font = fontforge.open('vendor/comic-shanns.otf')
 # ref = fontforge.open('vendor/iosevka-regular.ttf')
 # ref = fontforge.open('vendor/mplus-1m-regular.ttf')
 ref = fontforge.open('vendor/FantasqueSansMono-Large-Regular.ttf')
+# ref = fontforge.open('vendor/FantasqueSansMono-XtraLarge-Regular.ttf')
 
 for g in font.glyphs():
     uni = g.unicode
