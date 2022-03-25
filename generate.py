@@ -63,8 +63,8 @@ def adjust_line_height(source):
 
 font = fontforge.open('vendor/comic-shanns.otf')
 # ref = fontforge.open('vendor/Cousine-Regular.ttf')
-ref = fontforge.open('vendor/Inconsolata-Regular.ttf')
-# ref = fontforge.open('vendor/iosevka-regular.ttf')
+# ref = fontforge.open('vendor/Inconsolata-Regular.ttf')
+ref = fontforge.open('vendor/iosevka-regular.ttf')
 # ref = fontforge.open('vendor/mplus-1m-regular.ttf')
 
 for g in font.glyphs():
@@ -77,7 +77,8 @@ for g in font.glyphs():
         target_width = 520      # MPlus x 0.9375
         # target_width = 520    # MPlus x 0.95
         # target_width = 530    # Inconsolata x 1.025 (Same width as Shanns)
-        target_width = 520      # Inconsolata x 1.075
+        # target_width = 520    # Inconsolata x 1.075
+        target_width = 520      # Iosevka x 0.95
         if g.width != target_width:
             delta = target_width - g.width
             g.left_side_bearing += delta / 2
@@ -95,7 +96,8 @@ font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
 # adjust_height(font, ref, 0.95)    # MPlus x 520
 # adjust_height(font, ref, 0.975)   # MPlus x 510
 # adjust_height(font, ref, 1.025)   # Inconsolata x 530 (Same width as Inconsolata)
-adjust_height(font, ref, 1.075)     # Inconsolata x 520
+# adjust_height(font, ref, 1.075)   # Inconsolata x 520
+adjust_height(font, ref, 0.95)      # Iosevka x 520
 font.sfnt_names = [] # Get rid of 'Prefered Name' etc.
 font.fontname = 'ComicMono'
 font.fullname = 'Comic Mono'
