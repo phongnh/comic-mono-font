@@ -116,8 +116,8 @@ font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
 # adjust_height(font, ref, 1.050)   # FantasqueSansMono x 540 # GOOD
 # adjust_height(font, ref, 1.075)   # FantasqueSansMono x 540
 # adjust_height(font, ref, 1.025)   # FantasqueSansMono (ComicMono) x 520 # GOOD
-adjust_height(font, ref, 1.050)     # FantasqueSansMono (ComicMono) x 520 # GOOD
-# adjust_height(font, ref, 1.075)   # FantasqueSansMono (ComicMono) x 520 # GOOD
+# adjust_height(font, ref, 1.050)   # FantasqueSansMono (ComicMono) x 520 # GOOD
+adjust_height(font, ref, 1.075)     # FantasqueSansMono (ComicMono) x 520 # GOOD
 # adjust_height(font, ref, 1.100)   # FantasqueSansMono (ComicMono) x 520 # GOOD
 # adjust_height(font, ref, 1.125)   # FantasqueSansMono (ComicMono) x 520 # GOOD # BIGGER FONT
 # adjust_height(font, ref, 1.150)   # FantasqueSansMono (ComicMono) x 520 # GOOD # BIGGER FONT
