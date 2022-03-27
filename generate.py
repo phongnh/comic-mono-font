@@ -65,8 +65,9 @@ font = fontforge.open('vendor/comic-shanns.otf')
 # ref = fontforge.open('vendor/Cousine-Regular.ttf')
 # ref = fontforge.open('vendor/Inconsolata-Regular.ttf')
 # ref = fontforge.open('vendor/iosevka-regular.ttf')
+ref = fontforge.open('vendor/iosevka-monaco-regular.ttf')
 # ref = fontforge.open('vendor/mplus-1m-regular.ttf')
-ref = fontforge.open('vendor/FantasqueSansMono-ComicMono-Regular.ttf')
+# ref = fontforge.open('vendor/FantasqueSansMono-ComicMono-Regular.ttf')
 # ref = fontforge.open('vendor/FantasqueSansMono-Large-Regular.ttf')
 # ref = fontforge.open('vendor/FantasqueSansMono-XtraLarge-Regular.ttf')
 
@@ -107,7 +108,9 @@ font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
 # adjust_height(font, ref, 0.975)   # MPlus x 510
 # adjust_height(font, ref, 1.025)   # Inconsolata x 530 (Same width as Inconsolata)
 # adjust_height(font, ref, 1.075)   # Inconsolata x 520
-# adjust_height(font, ref, 0.95)    # Iosevka x 520
+# adjust_height(font, ref, 0.95)    # Iosevka x 520 # GOOD
+adjust_height(font, ref, 0.975)     # Iosevka x 520 # GOOD - BIGGER FONT
+# adjust_height(font, ref, 1.025)   # Iosevka x 520
 # adjust_height(font, ref, 0.975)   # FantasqueSansMono x 530
 # adjust_height(font, ref, 1.025)   # FantasqueSansMono x 510
 # adjust_height(font, ref, 1.025)   # FantasqueSansMono x 520
@@ -117,7 +120,7 @@ font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
 # adjust_height(font, ref, 1.075)   # FantasqueSansMono x 540
 # adjust_height(font, ref, 1.025)   # FantasqueSansMono (ComicMono) x 520 # GOOD
 # adjust_height(font, ref, 1.050)   # FantasqueSansMono (ComicMono) x 520 # GOOD
-adjust_height(font, ref, 1.075)     # FantasqueSansMono (ComicMono) x 520 # GOOD
+# adjust_height(font, ref, 1.075)   # FantasqueSansMono (ComicMono) x 520 # GOOD
 # adjust_height(font, ref, 1.100)   # FantasqueSansMono (ComicMono) x 520 # GOOD
 # adjust_height(font, ref, 1.125)   # FantasqueSansMono (ComicMono) x 520 # GOOD # BIGGER FONT
 # adjust_height(font, ref, 1.150)   # FantasqueSansMono (ComicMono) x 520 # GOOD # BIGGER FONT
