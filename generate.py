@@ -65,9 +65,12 @@ font = fontforge.open('vendor/comic-shanns.otf')
 # ref = fontforge.open('vendor/Cousine-Regular.ttf')
 # ref = fontforge.open('vendor/Inconsolata-Regular.ttf')
 # ref = fontforge.open('vendor/iosevka-regular.ttf')
-ref = fontforge.open('vendor/iosevka-monaco-regular.ttf')
+# ref = fontforge.open('vendor/iosevka-monaco-regular.ttf')
+# ref = fontforge.open('vendor/iosevka-custom-regular.ttf')
+ref = fontforge.open('vendor/iosevka-large-regular.ttf')
 # ref = fontforge.open('vendor/mplus-1m-regular.ttf')
 # ref = fontforge.open('vendor/FantasqueSansMono-ComicMono-Regular.ttf')
+# ref = fontforge.open('vendor/mplus-1m-regular.ttf')
 # ref = fontforge.open('vendor/FantasqueSansMono-Large-Regular.ttf')
 # ref = fontforge.open('vendor/FantasqueSansMono-XtraLarge-Regular.ttf')
 
@@ -83,6 +86,8 @@ for g in font.glyphs():
         # target_width = 530    # Inconsolata x 1.025 (Same width as Shanns)
         # target_width = 520    # Inconsolata x 1.075
         target_width = 520      # Iosevka x 0.95
+        # target_width = 510    # Iosevka Large x 0.975
+        # target_width = 500    # Iosevka Large x 0.95
         # target_width = 510    # FantasqueSansMono x 1.025
         target_width = 520      # FantasqueSansMono x 1.025
         # target_width = 525    # FantasqueSansMono x 1.025
@@ -92,8 +97,8 @@ for g in font.glyphs():
         # target_width = 540    # FantasqueSansMono x 1.075
         if g.width != target_width:
             delta = target_width - g.width
-            g.left_side_bearing += delta / 2
-            g.right_side_bearing += delta - g.left_side_bearing
+            g.left_side_bearing = int(g.left_side_bearing + (delta / 2))
+            g.right_side_bearing = int(g.right_side_bearing + delta - g.left_side_bearing)
             g.width = target_width
 
 font.familyname = 'Comic Mono'
@@ -111,6 +116,14 @@ font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
 # adjust_height(font, ref, 0.95)    # Iosevka x 520 # GOOD
 adjust_height(font, ref, 0.975)     # Iosevka x 520 # GOOD - BIGGER FONT
 # adjust_height(font, ref, 1.025)   # Iosevka x 520
+# adjust_height(font, ref, 0.96)    # Iosevka Large x 520
+# adjust_height(font, ref, 0.90)    # Iosevka Large x 520
+# adjust_height(font, ref, 0.95)    # Iosevka Large x 520
+# adjust_height(font, ref, 0.975)   # Iosevka Large x 520
+# adjust_height(font, ref, 0.99)    # Iosevka Large x 520 # Bigger! + 1475
+# adjust_height(font, ref, 0.975)   # Iosevka Large x 510
+# adjust_height(font, ref, 0.925)   # Iosevka Large x 520 (Same width as Iosevka)
+# adjust_height(font, ref, 0.90)    # Iosevka Large x 500
 # adjust_height(font, ref, 0.975)   # FantasqueSansMono x 530
 # adjust_height(font, ref, 1.025)   # FantasqueSansMono x 510
 # adjust_height(font, ref, 1.025)   # FantasqueSansMono x 520
