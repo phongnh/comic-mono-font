@@ -64,10 +64,10 @@ def adjust_line_height(source):
 font = fontforge.open('vendor/comic-shanns.otf')
 # ref = fontforge.open('vendor/Cousine-Regular.ttf')
 # ref = fontforge.open('vendor/Inconsolata-Regular.ttf')
-ref = fontforge.open('vendor/iosevka-regular.ttf')
+# ref = fontforge.open('vendor/iosevka-regular.ttf')
 # ref = fontforge.open('vendor/iosevka-monaco-regular.ttf')
 # ref = fontforge.open('vendor/iosevka-custom-regular.ttf')
-# ref = fontforge.open('vendor/iosevka-large-regular.ttf')
+ref = fontforge.open('vendor/iosevka-large-regular.ttf')
 # ref = fontforge.open('vendor/mplus-1m-regular.ttf')
 # ref = fontforge.open('vendor/FantasqueSansMono-ComicMono-Regular.ttf')
 # ref = fontforge.open('vendor/mplus-1m-regular.ttf')
@@ -140,11 +140,11 @@ adjust_height(font, ref, 0.975)     # Iosevka x 520 # GOOD - BIGGER FONT
 font.sfnt_names = [] # Get rid of 'Prefered Name' etc.
 font.fontname = 'ComicMono'
 font.fullname = 'Comic Mono'
-font.generate('ComicMono.ttf')
+font.generate('ComicMonoLarge.ttf')
 
 font.selection.all()
 font.fontname = 'ComicMono-Bold'
 font.fullname = 'Comic Mono Bold'
 font.weight = 'Bold'
 font.changeWeight(32, "LCG", 0, 0, "squish")
-font.generate('ComicMono-Bold.ttf')
+font.generate('ComicMonoLarge-Bold.ttf')
