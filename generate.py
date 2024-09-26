@@ -97,6 +97,10 @@ font.fontname = 'ComicMono'
 font.fullname = 'Comic Mono'
 font.generate('ComicMono.ttf')
 
+font.fontname = 'ComicMono-Regular'
+font.fullname = 'Comic Mono Regular'
+font.generate('ComicMono-Regular.ttf')
+
 font.selection.all()
 font.fontname = 'ComicMono-Bold'
 font.fullname = 'Comic Mono Bold'
