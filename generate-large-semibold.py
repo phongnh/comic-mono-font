@@ -92,19 +92,11 @@ adjust_height(font, ref, 0.975)     # Iosevka x 520 # GOOD - BIGGER FONT
 # adjust_height(font, ref, 0.99)    # Iosevka Large x 520 # Bigger! + 1475
 # adjust_height(font, ref, 0.925)   # Iosevka Large x 520 (Same width as Iosevka)
 font.sfnt_names = [] # Get rid of 'Prefered Name' etc.
-font.fontname = 'ComicMonoLarge'
-font.fullname = 'Comic Mono Large'
-font.generate('ComicMonoLarge.ttf')
-
-font.fontname = 'ComicMonoLarge-Regular'
-font.fullname = 'Comic Mono Large Regular'
-font.weight = 'normal'
-font.generate('ComicMonoLarge-Regular.ttf')
 
 font.selection.all()
-font.fontname = 'ComicMonoLarge-Bold'
-font.fullname = 'Comic Mono Large Bold'
-font.weight = 'Bold'
-font.changeWeight(32, "LCG", 0, 0, "squish")
-font.weight = 'bold'
-font.generate('ComicMonoLarge-Bold.ttf')
+font.fontname = 'ComicMonoLarge-SemiBold'
+font.fullname = 'Comic Mono Large SemiBold'
+font.weight = 'SemiBold'
+font.changeWeight(16, "LCG", 0, 0, "squish")
+font.weight = 'semibold'
+font.generate('ComicMonoLarge-SemiBold.ttf')

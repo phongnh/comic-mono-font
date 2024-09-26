@@ -68,7 +68,8 @@ print()
 
 font = fontforge.open(source_font)
 # font = fontforge.open('vendor/comic-shanns.otf')
-ref = fontforge.open('vendor/IosevkaLarge-Regular.ttf')
+# ref = fontforge.open('vendor/Cousine-Regular.ttf')
+ref = fontforge.open('vendor/Iosevka-Regular.ttf')
 
 for g in font.glyphs():
     uni = g.unicode
@@ -81,7 +82,7 @@ for g in font.glyphs():
             g.right_side_bearing = int(g.right_side_bearing + delta - g.left_side_bearing)
             g.width = target_width
 
-font.familyname = 'Comic Mono Large'
+font.familyname = 'Comic Mono'
 font.version = '1.0.0'
 font.comment = 'https://github.com/dtinth/comic-mono-font'
 font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
@@ -92,19 +93,11 @@ adjust_height(font, ref, 0.975)     # Iosevka x 520 # GOOD - BIGGER FONT
 # adjust_height(font, ref, 0.99)    # Iosevka Large x 520 # Bigger! + 1475
 # adjust_height(font, ref, 0.925)   # Iosevka Large x 520 (Same width as Iosevka)
 font.sfnt_names = [] # Get rid of 'Prefered Name' etc.
-font.fontname = 'ComicMonoLarge'
-font.fullname = 'Comic Mono Large'
-font.generate('ComicMonoLarge.ttf')
-
-font.fontname = 'ComicMonoLarge-Regular'
-font.fullname = 'Comic Mono Large Regular'
-font.weight = 'normal'
-font.generate('ComicMonoLarge-Regular.ttf')
 
 font.selection.all()
-font.fontname = 'ComicMonoLarge-Bold'
-font.fullname = 'Comic Mono Large Bold'
-font.weight = 'Bold'
-font.changeWeight(32, "LCG", 0, 0, "squish")
-font.weight = 'bold'
-font.generate('ComicMonoLarge-Bold.ttf')
+font.fontname = 'ComicMono-SemiBold'
+font.fullname = 'Comic Mono SemiBold'
+font.weight = 'SemiBold'
+font.changeWeight(16, "LCG", 0, 0, "squish")
+font.weight = 'semibold'
+font.generate('ComicMono-SemiBold.ttf')
