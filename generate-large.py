@@ -61,90 +61,44 @@ def adjust_line_height(source):
     source.hhea_linegap = 0
     source.os2_typolinegap = 0
 
-font = fontforge.open('vendor/comic-shanns.otf')
-# ref = fontforge.open('vendor/Cousine-Regular.ttf')
-# ref = fontforge.open('vendor/Inconsolata-Regular.ttf')
-# ref = fontforge.open('vendor/iosevka-regular.ttf')
-# ref = fontforge.open('vendor/iosevka-monaco-regular.ttf')
-# ref = fontforge.open('vendor/iosevka-custom-regular.ttf')
-ref = fontforge.open('vendor/iosevka-large-regular.ttf')
-# ref = fontforge.open('vendor/mplus-1m-regular.ttf')
-# ref = fontforge.open('vendor/FantasqueSansMono-ComicMono-Regular.ttf')
-# ref = fontforge.open('vendor/mplus-1m-regular.ttf')
-# ref = fontforge.open('vendor/FantasqueSansMono-Large-Regular.ttf')
-# ref = fontforge.open('vendor/FantasqueSansMono-XtraLarge-Regular.ttf')
+source_font = len(sys.argv) > 1 and sys.argv[1] or 'vendor/comic-shanns.otf'
+print()
+print(f'Source font: {source_font}')
+print()
+
+font = fontforge.open(source_font)
+# font = fontforge.open('vendor/comic-shanns.otf')
+ref = fontforge.open('vendor/IosevkaLargeRegular.ttf')
 
 for g in font.glyphs():
     uni = g.unicode
     category = unicodedata.category(chr(uni)) if 0 <= uni <= sys.maxunicode else None
     if g.width > 0 and category not in ['Mn', 'Mc', 'Me']:
-        target_width = 510
-        # target_width = 510    # MPlus x 0.975
-        # target_width = 515    # MPlus x 0.9375
-        target_width = 520      # MPlus x 0.9375
-        # target_width = 520    # MPlus x 0.95
-        # target_width = 530    # Inconsolata x 1.025 (Same width as Shanns)
-        # target_width = 520    # Inconsolata x 1.075
         target_width = 520      # Iosevka x 0.95
-        # target_width = 510    # Iosevka Large x 0.975
-        # target_width = 500    # Iosevka Large x 0.95
-        # target_width = 510    # FantasqueSansMono x 1.025
-        target_width = 520      # FantasqueSansMono x 1.025
-        # target_width = 525    # FantasqueSansMono x 1.025
-        # target_width = 530    # FantasqueSansMono x 0.975
-        # target_width = 540    # FantasqueSansMono x 1.025
-        # target_width = 540    # FantasqueSansMono x 1.050
-        # target_width = 540    # FantasqueSansMono x 1.075
         if g.width != target_width:
             delta = target_width - g.width
             g.left_side_bearing = int(g.left_side_bearing + (delta / 2))
             g.right_side_bearing = int(g.right_side_bearing + delta - g.left_side_bearing)
             g.width = target_width
 
-font.familyname = 'Comic Mono'
+font.familyname = 'Comic Mono Large'
 font.version = '1.0.0'
 font.comment = 'https://github.com/dtinth/comic-mono-font'
 font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
 
 # adjust_height(font, ref, 0.825)
-# adjust_height(font, ref, 0.925)   # MPlus x 520
-# adjust_height(font, ref, 0.9375)  # MPlus x 520
-# adjust_height(font, ref, 0.95)    # MPlus x 520
-# adjust_height(font, ref, 0.975)   # MPlus x 510
-# adjust_height(font, ref, 1.025)   # Inconsolata x 530 (Same width as Inconsolata)
-# adjust_height(font, ref, 1.075)   # Inconsolata x 520
 # adjust_height(font, ref, 0.95)    # Iosevka x 520 # GOOD
 adjust_height(font, ref, 0.975)     # Iosevka x 520 # GOOD - BIGGER FONT
-# adjust_height(font, ref, 1.025)   # Iosevka x 520
-# adjust_height(font, ref, 0.96)    # Iosevka Large x 520
-# adjust_height(font, ref, 0.90)    # Iosevka Large x 520
-# adjust_height(font, ref, 0.95)    # Iosevka Large x 520
-# adjust_height(font, ref, 0.975)   # Iosevka Large x 520
 # adjust_height(font, ref, 0.99)    # Iosevka Large x 520 # Bigger! + 1475
-# adjust_height(font, ref, 0.975)   # Iosevka Large x 510
 # adjust_height(font, ref, 0.925)   # Iosevka Large x 520 (Same width as Iosevka)
-# adjust_height(font, ref, 0.90)    # Iosevka Large x 500
-# adjust_height(font, ref, 0.975)   # FantasqueSansMono x 530
-# adjust_height(font, ref, 1.025)   # FantasqueSansMono x 510
-# adjust_height(font, ref, 1.025)   # FantasqueSansMono x 520
-# adjust_height(font, ref, 1.025)   # FantasqueSansMono x 525
-# adjust_height(font, ref, 1.025)   # FantasqueSansMono x 540 # GOOD
-# adjust_height(font, ref, 1.050)   # FantasqueSansMono x 540 # GOOD
-# adjust_height(font, ref, 1.075)   # FantasqueSansMono x 540
-# adjust_height(font, ref, 1.025)   # FantasqueSansMono (ComicMono) x 520 # GOOD
-# adjust_height(font, ref, 1.050)   # FantasqueSansMono (ComicMono) x 520 # GOOD
-# adjust_height(font, ref, 1.075)   # FantasqueSansMono (ComicMono) x 520 # GOOD
-# adjust_height(font, ref, 1.100)   # FantasqueSansMono (ComicMono) x 520 # GOOD
-# adjust_height(font, ref, 1.125)   # FantasqueSansMono (ComicMono) x 520 # GOOD # BIGGER FONT
-# adjust_height(font, ref, 1.150)   # FantasqueSansMono (ComicMono) x 520 # GOOD # BIGGER FONT
 font.sfnt_names = [] # Get rid of 'Prefered Name' etc.
-font.fontname = 'ComicMono'
-font.fullname = 'Comic Mono'
+font.fontname = 'ComicMonoLarge'
+font.fullname = 'Comic Mono Large'
 font.generate('ComicMonoLarge.ttf')
 
 font.selection.all()
-font.fontname = 'ComicMono-Bold'
-font.fullname = 'Comic Mono Bold'
+font.fontname = 'ComicMonoLarge-Bold'
+font.fullname = 'Comic Mono Large Bold'
 font.weight = 'Bold'
 font.changeWeight(32, "LCG", 0, 0, "squish")
 font.generate('ComicMonoLarge-Bold.ttf')
