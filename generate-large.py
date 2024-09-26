@@ -102,7 +102,7 @@ for g in font.glyphs():
             g.width = target_width
 
 font.familyname = 'Comic Mono'
-font.version = '0.1.1'
+font.version = '1.0.0'
 font.comment = 'https://github.com/dtinth/comic-mono-font'
 font.copyright = 'https://github.com/dtinth/comic-mono-font/blob/master/LICENSE'
 
